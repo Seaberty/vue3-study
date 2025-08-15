@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue介绍</title>
+    <!-- 引入 vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <!-- 容器 -->
+    <div id="app"></div>
+    <script>
+        // 需求：每次点击按钮，数字加1
+        // 创建根实例
+        const Root = {
+            data() {
+                return {
+                    count: 0,
+                }
+            },
+
+            template: '<button @click="count++">点我一下</button> - 点击次数 {{count}}'
+        }
+
+        // 创建 app 实例
+        const app = Vue.createApp(Root);
+
+        // 挂载实例
+        app.mount('#app');
+
+    </script>
+</body>
+</html>

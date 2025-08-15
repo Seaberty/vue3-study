@@ -1,0 +1,18 @@
+{
+  "name": "01_hello_vue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.1.1"
+  },
+  "dependencies": {
+    "vue": "^3.5.18"
+  },
+  "scripts": {
+    "dev": "vite --open",
+    "build": "vite build",
+    "preview": "vite preview"
+  }
+}
