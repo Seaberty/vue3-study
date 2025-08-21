@@ -1,1 +1,3 @@
-00_构建工具/demo_03/.gitignore
+dist
+node_modules
+.vscode/*
