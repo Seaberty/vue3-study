@@ -1,6 +1,21 @@
 <script setup>
-import { ref } from "vue"
+import { ref, reactive } from "vue"
+import TabItem from "./components/TabItem.vue"
 const current = ref(0) // 当前选中的tab
+
+const player = reactive({
+    name: "梅西",
+    img: "/images/messi.png",
+    rank: 1,
+    hot: 33344
+})
+
+const teamList = reactive({
+    name: "法国",
+    img: "/images/法国.jpg",
+    rank: 1,
+    hot: 23344
+})
 </script>
 
 <template>
@@ -26,39 +41,14 @@ const current = ref(0) // 当前选中的tab
         <!-- tab主体 -->
         <main>
             <div class="tab-list">
-                <!-- 单个tab -->
-                <div v-show="current === 0" class="tab-item">
-                    <!-- 图片 -->
-                    <div class="tab-img">
-                        <img src="/images/messi.png" alt="梅西" />
-                        <span class="tab-rate">1</span>
-                    </div>
-                    <!-- 排名 -->
-
-                    <!-- tab 右侧内容 -->
-                    <div class="tab-right">
-                        <div class="name">梅西</div>
-                        <div class="hot-bar">
-                            <div class="inner">33344热度</div>
-                        </div>
-                    </div>
+                <div v-show="current === 0">
+                    <!-- 球员 -->
+                    <TabItem :item="player"></TabItem>
                 </div>
 
-                <div v-show="current === 1" class="tab-item">
-                    <!-- 图片 -->
-                    <div class="tab-img">
-                        <img src="/images/法国.jpg" alt="法国" />
-                        <span class="tab-rate">1</span>
-                    </div>
-                    <!-- 排名 -->
-
-                    <!-- tab 右侧内容 -->
-                    <div class="tab-right">
-                        <div class="name">法国</div>
-                        <div class="hot-bar">
-                            <div class="inner">33344热度</div>
-                        </div>
-                    </div>
+                <div v-show="current === 1">
+                    <!-- 球队 -->
+                    <TabItem :item="teamList"></TabItem>
                 </div>
             </div>
         </main>
@@ -97,70 +87,10 @@ const current = ref(0) // 当前选中的tab
     flex: auto;
     text-align: center;
     padding: 10px 0;
+    transition: 0.5s;
 }
 
 .tab-list {
     margin: 0 20px;
-}
-
-.tab-item {
-    margin: 20px 0;
-    display: flex;
-}
-
-.tab-img {
-    background-color: #fff;
-    width: 150px;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-}
-.tab-img img {
-    width: 100%;
-    /* 解决图片底部不对齐的问题 */
-    vertical-align: top;
-}
-
-.tab-rate {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 0;
-    left: 0;
-    background-color: #f56600;
-    border-radius: 20px 0;
-    font-size: 26px;
-    font-weight: bold;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.tab-right {
-    margin-left: 30px;
-    color: #fff;
-    font-size: 30px;
-    /* background-color: #bfa; */
-    display: flex;
-    flex-flow: column;
-    justify-content: space-evenly;
-    flex: auto;
-}
-
-.hot-bar {
-    background-color: #022467;
-    border-radius: 20px;
-    text-indent: 0.5em;
-    overflow: hidden;
-}
-
-.inner {
-    background-color: #f56600;
-    border-radius: 20px;
-    background-image: linear-gradient(90deg, #bb0434 50%, #4d0212);
-    /* width: 50%; */
-    /* width: 10%; */
-    white-space: nowrap;
 }
 </style>
